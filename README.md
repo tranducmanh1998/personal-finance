@@ -1,2 +1,2 @@
 # personal-finance
-Ứng dụng quản lý tài chính cá nhân
+Ứng dụng quản lý tài chính cá nhân của ManhTD
