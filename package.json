@@ -1,0 +1,51 @@
+{
+  "name": "personal-finance",
+  "version": "1.0.0",
+  "description": "Ứng dụng quản lý tài chính cá nhân của ManhTD",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format:check": "prettier --check \"app/**/*.{ts,tsx,css}\" \"src/**/*.{ts,tsx}\" \"scripts/**/*.ts\" \"tests/**/*.{ts,tsx,json}\" \"*.json\" \"*.ts\" \"*.mjs\" \".devcontainer/*.json\"",
+    "format": "prettier --write \"app/**/*.{ts,tsx,css}\" \"src/**/*.{ts,tsx}\" \"scripts/**/*.ts\" \"tests/**/*.{ts,tsx,json}\" \"*.json\" \"*.ts\" \"*.mjs\" \".devcontainer/*.json\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "tsx scripts/test-integration.ts",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "provision-user": "tsx scripts/provision-user.ts"
+  },
+  "dependencies": {
+    "better-auth": "^1.7.17",
+    "drizzle-orm": "^0.45.4",
+    "exceljs": "4.4.0",
+    "next": "^16.4.5",
+    "pg": "^8.23.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "dotenv": "^18.0.9",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.5",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.0"
+  }
+}

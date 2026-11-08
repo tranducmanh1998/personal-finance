@@ -1,0 +1,13 @@
+node_modules/
+.next/
+dist/
+build/
+coverage/
+test-results/
+playwright-report/
+*.min.js
+package-lock.json
+drizzle/meta/
+.github/
+.specify/
+specs/

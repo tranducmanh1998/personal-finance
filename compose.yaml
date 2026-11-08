@@ -1,0 +1,71 @@
+name: personal-finance-isolated
+
+services:
+  database:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${FINANCE_DB_NAME:?Set FINANCE_DB_NAME in .env.compose}
+      POSTGRES_USER: ${FINANCE_DB_USER:?Set FINANCE_DB_USER in .env.compose}
+      POSTGRES_PASSWORD: ${FINANCE_DB_PASSWORD:?Set FINANCE_DB_PASSWORD in .env.compose}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - finance-private
+    healthcheck:
+      test:
+        ["CMD-SHELL", 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+  app:
+    build:
+      context: .
+      target: runner
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://${FINANCE_DB_USER:?Set FINANCE_DB_USER in .env.compose}:${FINANCE_DB_PASSWORD:?Set FINANCE_DB_PASSWORD in .env.compose}@database:5432/${FINANCE_DB_NAME:?Set FINANCE_DB_NAME in .env.compose}
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?Set BETTER_AUTH_SECRET in .env.compose}
+      BETTER_AUTH_URL: ${BETTER_AUTH_URL:?Set BETTER_AUTH_URL in .env.compose}
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${APP_PORT:-3000}:3000"
+    networks:
+      - finance-private
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/login').then(response => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+
+  migrate:
+    build:
+      context: .
+      target: migrator
+    profiles:
+      - operations
+    environment:
+      DATABASE_URL: postgresql://${FINANCE_DB_USER:?Set FINANCE_DB_USER in .env.compose}:${FINANCE_DB_PASSWORD:?Set FINANCE_DB_PASSWORD in .env.compose}@database:5432/${FINANCE_DB_NAME:?Set FINANCE_DB_NAME in .env.compose}
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - finance-private
+
+volumes:
+  postgres-data:
+
+networks:
+  finance-private:

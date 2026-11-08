@@ -1,0 +1,2 @@
+ALTER TABLE "debt" ADD COLUMN "archived_at" timestamp with time zone;--> statement-breakpoint
+ALTER TABLE "debt" ADD CONSTRAINT "debt_archived_settled_check" CHECK ("debt"."archived_at" IS NULL OR "debt"."balance_amount" = 0);

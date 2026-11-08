@@ -1,0 +1,75 @@
+{
+  "month": "2026-11",
+  "transactions": [
+    {
+      "categoryId": "salary",
+      "categoryName": "Lương",
+      "kind": "income",
+      "isMonthlySavings": false,
+      "amount": "9007199254740993",
+      "occurredOn": "2026-11-02"
+    },
+    {
+      "categoryId": "salary",
+      "categoryName": "Lương",
+      "kind": "income",
+      "isMonthlySavings": false,
+      "amount": "-3",
+      "occurredOn": "2026-11-03"
+    },
+    {
+      "categoryId": "food",
+      "categoryName": "Ăn uống",
+      "kind": "expense",
+      "isMonthlySavings": false,
+      "amount": "100",
+      "occurredOn": "2026-11-04"
+    },
+    {
+      "categoryId": "saving",
+      "categoryName": "Tiết kiệm gửi mẹ",
+      "kind": "expense",
+      "isMonthlySavings": true,
+      "amount": "200",
+      "occurredOn": "2026-11-05"
+    },
+    {
+      "categoryId": "food",
+      "categoryName": "Ăn uống",
+      "kind": "expense",
+      "isMonthlySavings": false,
+      "amount": "-50",
+      "occurredOn": "2026-11-06"
+    },
+    {
+      "categoryId": "salary",
+      "categoryName": "Lương",
+      "kind": "income",
+      "isMonthlySavings": false,
+      "amount": "500",
+      "occurredOn": "2026-10-12"
+    },
+    {
+      "categoryId": "food",
+      "categoryName": "Ăn uống",
+      "kind": "expense",
+      "isMonthlySavings": false,
+      "amount": "250",
+      "occurredOn": "2026-10-13"
+    },
+    {
+      "categoryId": "saving",
+      "categoryName": "Tiết kiệm gửi mẹ",
+      "kind": "expense",
+      "isMonthlySavings": true,
+      "amount": "100",
+      "occurredOn": "2026-10-14"
+    }
+  ],
+  "assets": [
+    { "kind": "cash", "amount": "1500" },
+    { "kind": "savings_deposit", "amount": "2500" },
+    { "kind": "cash_equivalent", "amount": "1000" }
+  ],
+  "debts": [{ "balanceAmount": "1400" }]
+}

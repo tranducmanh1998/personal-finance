@@ -1,0 +1,38 @@
+{
+  "transactions": [
+    {
+      "id": "test-income-0001",
+      "kind": "income",
+      "amount": "12500000",
+      "occurredOn": "2026-01-05",
+      "category": "Lương"
+    },
+    {
+      "id": "test-expense-0001",
+      "kind": "expense",
+      "amount": "325000",
+      "occurredOn": "2026-01-06",
+      "category": "Ăn uống"
+    }
+  ],
+  "assetBalances": [
+    {
+      "kind": "cash",
+      "amount": "2000000"
+    },
+    {
+      "kind": "savings_deposit",
+      "amount": "5000000"
+    },
+    {
+      "kind": "cash_equivalent",
+      "amount": "0"
+    }
+  ],
+  "debts": [
+    {
+      "id": "test-debt-0001",
+      "balanceAmount": "15000000"
+    }
+  ]
+}

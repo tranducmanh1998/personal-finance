@@ -1,0 +1,2 @@
+ALTER TABLE "cash_flow_schedule" ADD COLUMN "recurrence" text DEFAULT 'once' NOT NULL;--> statement-breakpoint
+ALTER TABLE "cash_flow_schedule" ADD CONSTRAINT "cash_flow_schedule_recurrence_check" CHECK ("cash_flow_schedule"."recurrence" in ('once', 'weekly', 'monthly'));

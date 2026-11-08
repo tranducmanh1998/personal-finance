@@ -1,0 +1,76 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793860719025,
+      "tag": "0000_strange_colossus",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793865304093,
+      "tag": "0001_smiling_speed",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793869669533,
+      "tag": "0002_sweet_red_ghost",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793872976026,
+      "tag": "0003_outstanding_ironclad",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793965882735,
+      "tag": "0004_silky_leech",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1793969734132,
+      "tag": "0005_solid_rage",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793971925832,
+      "tag": "0006_melted_bulldozer",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1793983891679,
+      "tag": "0007_add_cash_flow_schedule",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1794019314582,
+      "tag": "0008_add_cash_flow_recurrence",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1794022138541,
+      "tag": "0009_add_cash_flow_matches",
+      "breakpoints": true
+    }
+  ]
+}
