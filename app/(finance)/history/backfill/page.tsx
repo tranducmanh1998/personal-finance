@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { appPath } from "@/lib/app-path";
 import { listCategories } from "@/features/categories/category.service";
 import { getBackfillState } from "@/features/history/history.repository";
 import { previewBackfillRange } from "@/features/history/history.service";
@@ -93,7 +94,7 @@ export default async function BackfillPage({
           <section className="content-card" aria-labelledby="backfill-preview">
             <h2 id="backfill-preview">Xem trước các tháng cần chốt</h2>
             <form
-              action="/history/backfill"
+              action={appPath("/history/backfill")}
               className="finance-form"
               method="get"
             >

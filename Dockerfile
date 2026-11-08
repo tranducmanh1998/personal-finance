@@ -12,6 +12,8 @@ FROM base AS builder
 
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
+ARG APP_BASE_PATH=
+ENV NEXT_PUBLIC_APP_BASE_PATH=${APP_BASE_PATH}
 RUN mkdir -p public \
   && DATABASE_URL=postgresql://build:build-only@127.0.0.1:5432/build \
     BETTER_AUTH_SECRET=build-only-secret-not-for-runtime-000000000 \

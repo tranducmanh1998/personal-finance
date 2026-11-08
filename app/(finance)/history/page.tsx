@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { appPath } from "@/lib/app-path";
 import { getMonthlyHistory } from "@/features/history/history.service";
 import { previousMonth } from "@/features/dashboard/dashboard.service";
 import { requireUserId } from "@/lib/dal";
@@ -51,7 +52,7 @@ export default async function HistoryPage({
   return (
     <section>
       {closed && (
-        <a className="secondary-button" href={`/history/${history.month}/export`}>
+        <a className="secondary-button" href={appPath(`/history/${history.month}/export`)}>
           Tải báo cáo Excel
         </a>
       )}
@@ -67,7 +68,7 @@ export default async function HistoryPage({
                 : "Tháng này chưa được chốt; dữ liệu đang xem chưa bất biến."}
           </p>
         </div>
-        <form action="/history" className="month-picker" method="get">
+        <form action={appPath("/history")} className="month-picker" method="get">
           <label htmlFor="history-month">Chọn tháng</label>
           <div>
             <input

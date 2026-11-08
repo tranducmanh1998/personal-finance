@@ -9,6 +9,8 @@ if (!secret || secret.length < 32) {
   throw new Error("BETTER_AUTH_SECRET must contain at least 32 characters.");
 }
 
+import { appPath } from "@/lib/app-path";
+
 const baseURL = process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
 const trustedOrigins = new Set([new URL(baseURL).origin]);
 if (process.env.NODE_ENV !== "production") {
@@ -19,6 +21,7 @@ if (process.env.NODE_ENV !== "production") {
 export const auth = betterAuth({
   appName: "Quản lý tài chính cá nhân",
   baseURL,
+  basePath: appPath("/api/auth"),
   trustedOrigins: [...trustedOrigins],
   secret,
   advanced: {

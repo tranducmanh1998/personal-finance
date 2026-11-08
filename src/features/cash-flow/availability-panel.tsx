@@ -1,5 +1,7 @@
 "use client";
 
+import { appPath } from "@/lib/app-path";
+
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type {
@@ -89,7 +91,7 @@ export function AvailabilityPanel({
     setPendingKey(key);
     setErrors((current) => ({ ...current, [key]: "" }));
     try {
-      const response = await fetch("/api/cash-flow/matches", {
+      const response = await fetch(appPath("/api/cash-flow/matches"), {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -124,7 +126,7 @@ export function AvailabilityPanel({
     setPendingKey(key);
     setErrors((current) => ({ ...current, [key]: "" }));
     try {
-      const response = await fetch("/api/cash-flow/matches", {
+      const response = await fetch(appPath("/api/cash-flow/matches"), {
         method: "DELETE",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -189,7 +191,7 @@ export function AvailabilityPanel({
                   {!segment.openingBalanceComplete ? (
                     <p className="availability-warning">
                       Chưa đủ số dư đầu kỳ của cả tiền mặt, tiền gửi tiết kiệm
-                      và tương đương tiền. <a href="/assets">Cập nhật số dư</a>
+                      và tương đương tiền. <a href={appPath("/assets")}>Cập nhật số dư</a>
                     </p>
                   ) : null}
                   <dl className="availability-totals">

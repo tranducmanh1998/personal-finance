@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { appPath } from "@/lib/app-path";
 import { DistributionChart } from "@/features/dashboard/distribution-charts";
 import { getDashboardSummary } from "@/features/dashboard/dashboard.repository";
 import { SummaryCards } from "@/features/dashboard/summary-cards";
@@ -53,7 +54,7 @@ export default async function DashboardPage({
             Báo cáo {monthLabel(summary.month)} và so sánh với tháng trước.
           </p>
         </div>
-        <form action="/dashboard" className="month-picker" method="get">
+        <form action={appPath("/dashboard")} className="month-picker" method="get">
           <label htmlFor="dashboard-month">Chọn tháng</label>
           <div>
             <input

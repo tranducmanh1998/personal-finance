@@ -1,5 +1,7 @@
 "use client";
 
+import { appPath } from "@/lib/app-path";
+
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { ScheduleItemDto } from "./schedule.service";
@@ -148,7 +150,7 @@ export function ScheduleForm({
     setError(null);
     setSuccess(null);
     try {
-      const response = await fetch("/api/cash-flow", {
+      const response = await fetch(appPath("/api/cash-flow"), {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ ...input, endDate: input.endDate || null }),
@@ -196,7 +198,7 @@ export function ScheduleForm({
     setError(null);
     setSuccess(null);
     try {
-      const response = await fetch(`/api/cash-flow/${itemId}`, {
+      const response = await fetch(appPath(`/api/cash-flow/${itemId}`), {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -234,7 +236,7 @@ export function ScheduleForm({
     setError(null);
     setSuccess(null);
     try {
-      const response = await fetch(`/api/cash-flow/${item.id}`, {
+      const response = await fetch(appPath(`/api/cash-flow/${item.id}`), {
         method: "DELETE",
       });
       if (!response.ok) {
